@@ -31,6 +31,7 @@
         android:layout_margin="16dp">
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilproducto"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
 
