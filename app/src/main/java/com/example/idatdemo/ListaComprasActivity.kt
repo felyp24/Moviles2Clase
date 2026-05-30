@@ -49,7 +49,8 @@ class ListaComprasActivity : AppCompatActivity() {
                 txtbuscar.text?.clear()
             }
             else{
-                Toast.makeText(this,"Ingrese el valor",Toast.LENGTH_SHORT).show()
+                //Toast.makeText(this,"Ingrese el valor",Toast.LENGTH_SHORT).show()
+                tilproducto.error = "Ingrese un producto"
             }
 
         }
