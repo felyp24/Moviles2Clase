@@ -1,5 +1,6 @@
 package com.example.idatdemo
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.ListView
@@ -53,6 +54,13 @@ class ListaComprasActivity : AppCompatActivity() {
                 tilproducto.error = "Ingrese un producto"
             }
 
+        }
+        lvproductos.setOnItemClickListener{
+            _ , _ , position , _ ->
+            val producto = productos[position]
+            val intent = Intent(this,ProductoSeleccionadoActivity::class.java)
+            intent.putExtra("nombreproducto",producto)
+            startActivity(intent)
         }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
