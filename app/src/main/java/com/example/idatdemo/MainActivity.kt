@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         }
         btnentrar = findViewById(R.id.btnentrar)
         btnentrar.setOnClickListener{
-            val intent = Intent(this,ListaComprasActivity::class.java)
+            val intent = Intent(this, HistorialActivity::class.java)
             startActivity(intent)
         }
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
