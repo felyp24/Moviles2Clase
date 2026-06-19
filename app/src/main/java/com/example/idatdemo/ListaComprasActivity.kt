@@ -7,6 +7,7 @@ import android.widget.ListView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -61,6 +62,15 @@ class ListaComprasActivity : AppCompatActivity() {
             val intent = Intent(this,ProductoSeleccionadoActivity::class.java)
             intent.putExtra("nombreproducto",producto)
             startActivity(intent)
+        }
+
+        lvproductos.setOnItemLongClickListener{ _, _, position , _ ->
+
+            val dialogview = layoutInflater.inflate(R.layout.dialog_opciones, null)
+            val dialog = AlertDialog.Builder(this).setView(dialogview).create()
+            dialog.show()
+            true
+
         }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->

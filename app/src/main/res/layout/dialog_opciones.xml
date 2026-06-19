@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:backgroundTint="@color/white"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btneliminar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="eliminar"
+        android:backgroundTint="@color/rojo"/>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btncomprado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Marcar como comprado"
+        android:layout_marginVertical="16dp"
+        android:backgroundTint="#1A2EDB"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btncancelar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cancelar"
+        android:backgroundTint="#F23FA007"/>
+
+
+
+
+
+</LinearLayout>
