@@ -1,8 +1,10 @@
 package com.example.idatdemo
 
 import android.content.Intent
+import android.opengl.Matrix
 import android.os.Bundle
 import android.widget.ArrayAdapter
+import android.widget.ImageView
 import android.widget.ListView
 import android.widget.TextView
 import android.widget.Toast
@@ -65,10 +67,27 @@ class ListaComprasActivity : AppCompatActivity() {
         }
 
         lvproductos.setOnItemLongClickListener{ _, _, position , _ ->
-
+            val producto = productos[position]
             val dialogview = layoutInflater.inflate(R.layout.dialog_opciones, null)
+            val tvtitulo = dialogview.findViewById<TextView>(R.id.tvtitulo)
+            tvtitulo.text = "Opciones para: ${producto}"
+            val btncancelar = dialogview.findViewById<MaterialButton>(R.id.btncancelar)
+            val ivcancelar = dialogview.findViewById<ImageView>(R.id.ivcancelar)
             val dialog = AlertDialog.Builder(this).setView(dialogview).create()
             dialog.show()
+            btncancelar.setOnClickListener {
+                dialog.dismiss()
+            }
+            ivcancelar.setOnClickListener {
+                dialog.dismiss()
+            }
+            val btneliminar = dialogview.findViewById<MaterialButton>(R.id.btneliminar)
+            btneliminar.setOnClickListener {
+                productos.removeAt(position)
+                productosadapter.notifyDataSetChanged()
+                Toast.makeText(this,"${producto} eliminado",Toast.LENGTH_SHORT).show()
+                dialog.dismiss()
+            }
             true
 
         }
