@@ -18,7 +18,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_menu"
-            android:layout_margin="16dp"/>
+            android:layout_marginTop="32dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="16dp"
+            />
         
         <FrameLayout
             android:id="@+id/flaycontenedor"
@@ -29,6 +32,7 @@
 
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
+        android:id="@+id/nvmenu"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:backgroundTint="@color/white"
