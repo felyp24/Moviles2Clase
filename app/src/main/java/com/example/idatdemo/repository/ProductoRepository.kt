@@ -4,7 +4,7 @@ import android.content.ContentValues
 import android.content.Context
 import com.example.idatdemo.Data.AppDatabaseHelper
 import com.example.idatdemo.entity.Producto
-
+//equisde
 class ProductoRepository(context: Context) {
 
     private val dbhelper = AppDatabaseHelper(context)
