@@ -44,6 +44,7 @@ class InicioActivity : AppCompatActivity() {
                 R.id.itlista -> startActivity(Intent(this, ListaComprasActivity::class.java))
                 R.id.ithistorial -> startActivity(Intent(this, HistorialActivity::class.java))
                 R.id.itperfil -> replaceFragment(PerfilFragment())
+                R.id.itproducto -> startActivity(Intent(this,NuevoProductoActivity::class.java))
             }
             dlaymenu.closeDrawers()
             true

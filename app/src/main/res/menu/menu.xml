@@ -25,9 +25,16 @@
         android:icon="@drawable/ic_profile" />
 
     <item
+        android:id="@+id/itproducto"
+        android:title="Producto"
+        android:icon="@drawable/cart_shopping_fast_svgrepo_com" />
+
+    <item
         android:id="@+id/itcerrar"
         android:title="Cerrar sesion"
         android:icon="@drawable/ic_logout" />
+
+
 
 
 
