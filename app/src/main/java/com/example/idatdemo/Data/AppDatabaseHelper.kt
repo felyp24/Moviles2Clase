@@ -4,13 +4,13 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
-class AppDatabaseHelper(context : Context) : SQLiteOpenHelper(context, "productos.db",null,2){
+class AppDatabaseHelper(context : Context) : SQLiteOpenHelper(context, "productos.db",null,4){
     override fun onCreate(p0: SQLiteDatabase) {
         p0.execSQL("""
             create table producto(
                 id INTEGER Primary Key Autoincrement not null,
                 title Text,
-                Price REAL,
+                price REAL,
                 description TEXT,
                 category TEXT,
                 image TEXT

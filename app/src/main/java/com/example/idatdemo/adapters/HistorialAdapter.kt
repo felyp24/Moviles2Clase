@@ -21,7 +21,8 @@ class HistorialAdapter(private val context : Context ,private val lista : List<P
         val producto = lista[position]
         Glide.with(context).load(producto.image).into(holder.ivimage)
         holder.tvtitle.text = producto.title
-        holder.tvdescription.text = producto.description
+        //holder.tvdescription.text = producto.description
+        holder.tvdescription.visibility = View.GONE
         holder.tvcategory.text = producto.category
         holder.tvprice.text = "S/ ${String.format("%.2f",producto.price)}"
     }

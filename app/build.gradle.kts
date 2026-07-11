@@ -41,6 +41,7 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation ("com.github.bumptech.glide:glide:5.0.5")
+    implementation ("com.airbnb.android:lottie:6.7.1")
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     testImplementation(libs.junit)

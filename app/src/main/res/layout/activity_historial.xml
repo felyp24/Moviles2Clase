@@ -22,10 +22,41 @@
         android:id="@+id/rvhistorial"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="12"
         android:layout_marginHorizontal="16dp"
         android:layout_marginBottom="16dp"
         tools:listitem="@layout/item_historial"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_weight="1">
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilhistorial"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:layout_weight="1">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:id="@+id/txtbuscarhistorial"
+                android:layout_height="wrap_content"
+                android:hint="Ingrese un texto"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnbuscarhistorial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Buscar"/>
+
+    </LinearLayout>
+
+
+
+
+
+
+
 
 
 
