@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.idatdemo.entity.Producto
+import com.example.idatdemo.entity.Rating
 import com.example.idatdemo.repository.ProductoRepository
 
 class NuevoProductoActivity : AppCompatActivity() {
@@ -44,9 +45,13 @@ class NuevoProductoActivity : AppCompatActivity() {
                     id=0,
                     title = title,
                     price = price,
-                    description = description,
                     category = category,
-                    image = imagen
+                    description = description,
+                    image = imagen,
+                    rating = Rating(
+                        rate=0.0,
+                        count = 0
+                    )
                 )
             )
             Toast.makeText(this,"Producto insertado con id: $idproducto",Toast.LENGTH_SHORT).show()

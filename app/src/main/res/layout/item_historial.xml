@@ -65,7 +65,7 @@
                 android:id="@+id/rbrating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/Widget.AppCompat.RatingBar.Small"
+                style="@style/Widget.AppCompat.RatingBar.Small"/>
 
         </LinearLayout>
 

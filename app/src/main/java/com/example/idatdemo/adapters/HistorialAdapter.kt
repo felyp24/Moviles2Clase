@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.RatingBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -22,9 +23,10 @@ class HistorialAdapter(private val context : Context ,private val lista : List<P
         Glide.with(context).load(producto.image).into(holder.ivimage)
         holder.tvtitle.text = producto.title
         //holder.tvdescription.text = producto.description
-        holder.tvdescription.visibility = View.GONE
+        //holder.tvdescription.visibility = View.GONE
         holder.tvcategory.text = producto.category
         holder.tvprice.text = "S/ ${String.format("%.2f",producto.price)}"
+        holder.rbrating.rating = producto.rating.rate.toFloat()
     }
 
     override fun getItemCount(): Int {
@@ -34,8 +36,9 @@ class HistorialAdapter(private val context : Context ,private val lista : List<P
     inner class HistorialViewholder(itemview : View) : RecyclerView.ViewHolder(itemview){
         val ivimage : ImageView = itemview.findViewById<ImageView>(R.id.ivimage)
         val tvtitle : TextView = itemview.findViewById<TextView>(R.id.tvtitle)
-        val tvdescription : TextView = itemview.findViewById<TextView>(R.id.tvdescription)
+        //val tvdescription : TextView = itemview.findViewById<TextView>(R.id.tvdescription)
         val tvcategory : TextView = itemview.findViewById<TextView>(R.id.tvcategory)
         val tvprice : TextView = itemview.findViewById<TextView>(R.id.tvprice)
+        val rbrating : RatingBar = itemview.findViewById<RatingBar>(R.id.rbrating)
     }
 }
