@@ -42,6 +42,8 @@ dependencies {
     implementation(libs.material)
     implementation ("com.github.bumptech.glide:glide:5.0.5")
     implementation ("com.airbnb.android:lottie:6.7.1")
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     testImplementation(libs.junit)

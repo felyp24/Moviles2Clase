@@ -44,13 +44,9 @@
                 android:id="@+id/tvtitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Title"/>
+                android:text="Title"
+                style="@style/titulo"/>
 
-            <TextView
-                android:id="@+id/tvdescription"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Description"/>
 
             <TextView
                 android:id="@+id/tvcategory"
@@ -62,7 +58,14 @@
                 android:id="@+id/tvprice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Price"/>
+                android:text="Price"
+                android:textStyle="bold"/>
+            
+            <RatingBar
+                android:id="@+id/rbrating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Widget.AppCompat.RatingBar.Small"
 
         </LinearLayout>
 
