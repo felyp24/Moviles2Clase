@@ -1,6 +1,7 @@
 package com.example.idatdemo
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -11,6 +12,9 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.idatdemo.entity.Producto
 import com.example.idatdemo.entity.Rating
 import com.example.idatdemo.repository.ProductoRepository
+import com.google.firebase.Firebase
+import com.google.firebase.database.database
+import java.util.UUID
 
 class NuevoProductoActivity : AppCompatActivity() {
     private lateinit var ettitle : EditText
@@ -39,23 +43,42 @@ class NuevoProductoActivity : AppCompatActivity() {
             val description = etdescription.text.toString()
             val category = etcategory.text.toString()
             val imagen = etimage.text.toString()
-            val productoRepository = ProductoRepository(this)
-            val idproducto =productoRepository.insertar(
-                Producto(
-                    id=0,
-                    title = title,
-                    price = price,
-                    category = category,
-                    description = description,
-                    image = imagen,
-                    rating = Rating(
-                        rate=0.0,
-                        count = 0
-                    )
-                )
+            val db = Firebase.database.reference
+            val productomap = mapOf(
+                "title" to title,
+                "price" to price,
+                "description" to description,
+                "category" to category,
+                "image" to imagen
             )
-            Toast.makeText(this,"Producto insertado con id: $idproducto",Toast.LENGTH_SHORT).show()
-            finish()
+            val uuid = UUID.randomUUID().toString()
+            db.child("productos").child(uuid).setValue(productomap)
+                .addOnSuccessListener {
+                    Log.e("Firebase","Producto Insertado")
+                    Toast.makeText(this,"Producto insertado",Toast.LENGTH_SHORT).show()
+                    finish()
+
+                }
+                .addOnFailureListener{error->
+                    Log.e("Firebase",error.toString())
+                    Toast.makeText(this,"Producto no insertado",Toast.LENGTH_SHORT).show()
+                }
+//            val productoRepository = ProductoRepository(this)
+//            val idproducto =productoRepository.insertar(
+//                Producto(
+//                    id=0,
+//                    title = title,
+//                    price = price,
+//                    category = category,
+//                    description = description,
+//                    image = imagen,
+//                    rating = Rating(
+//                        rate=0.0,
+//                        count = 0
+//                    )
+//                )
+//            )
+
         }
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "481179647325",
+    "project_id": "movileclase2",
+    "storage_bucket": "movileclase2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:481179647325:android:b5c404bcdbebcfb1b8fcb4",
+        "android_client_info": {
+          "package_name": "com.example.idatdemo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBub9rbh8jFBtO7HA4QHXHwG-l9yoe_SnM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
