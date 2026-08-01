@@ -13,8 +13,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.idatdemo.adapters.HistorialAdapter
 import com.example.idatdemo.api.FakeStoreApiClient
 import com.example.idatdemo.entity.Producto
+import com.example.idatdemo.entity.Rating
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -50,7 +55,8 @@ class HistorialActivity : AppCompatActivity() {
 
         rvHistorial.adapter = historialAdapter
 
-        cargarProductosDesdeApi()
+        //cargarProductosDesdeApi()
+        cargarproductosdesdefirebase()
 
         ViewCompat.setOnApplyWindowInsetsListener(
             findViewById(R.id.main)
@@ -137,5 +143,44 @@ class HistorialActivity : AppCompatActivity() {
                     ).show()
                 }
             })
+    }
+
+    private fun cargarproductosdesdefirebase(){
+        val referencia = FirebaseDatabase.getInstance().getReference("productos")
+        Log.i("Firebase","Referencia" + referencia)
+        referencia.addListenerForSingleValueEvent(
+            object : ValueEventListener{
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    productos.clear()
+                    for (item in snapshot.children){
+                        //val id = item.key
+                        val title = item.child("title")
+                        val description = item.child("description")
+                        val price = item.child("price")
+                        val category = item.child("category")
+                        val image = item.child("image")
+                        productos.add(Producto(
+                            id = 0,
+                            title = title.value.toString(),
+                            description = description.value.toString(),
+                            price = price.value.toString().toDouble(),
+                            category = category.value.toString(),
+                            image = image.value.toString(),
+                            rating = Rating(
+                                rate = 0.0,
+                                count = 0
+                            )
+
+                        ))
+                    }
+                    historialAdapter.notifyDataSetChanged()
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    TODO("Not yet implemented")
+                }
+
+            }
+        )
     }
 }
